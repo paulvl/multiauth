@@ -1,0 +1,24 @@
+{
+    "name": "paulvl/multiauth",
+    "description": "Multi authorization package for laravel 5.2",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Paul Vidal",
+            "email": "i@paulvl.me"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.5.9",
+        "laravel/framework": "5.2.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "MultiAuth\\": "src/"
+        },
+        "files": [
+            "files/helpers.php"
+        ]
+    }
+}
