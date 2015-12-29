@@ -30,9 +30,9 @@ if (! function_exists('multiAuthPasswordRoutes')) {
 }
 
 if (! function_exists('multiAuthRoutes')) {
-	function multiAuthRoutes($controller = "Auth\AuthController"){
-		multiAuthLoginRoutes($controller);
-		multiAuthRegisterRoutes($controller);
-		multiAuthPasswordRoutes($controller);
+	function multiAuthRoutes($authController = "Auth\AuthController", $passwordController = "Auth\PasswordController"){
+		multiAuthLoginRoutes($authController);
+		multiAuthRegisterRoutes($authController);
+		multiAuthPasswordRoutes($passwordController);
 	}
 }
