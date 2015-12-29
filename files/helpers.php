@@ -22,7 +22,7 @@ if (! function_exists('multiAuthRegisterRoutes')) {
 }
 
 if (! function_exists('multiAuthPasswordRoutes')) {
-	function multiAuthPasswordRoutes($controller = "Auth\AuthController"){
+	function multiAuthPasswordRoutes($controller = "Auth\PasswordController"){
 	    app('router')->get('password/reset/{token?}', "$controller@getEmail");
 	    app('router')->post('password/email', "$controller@postEmail");
 	    app('router')->post('password/reset', "$controller@getReset");
