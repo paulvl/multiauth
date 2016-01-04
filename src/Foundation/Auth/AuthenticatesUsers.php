@@ -28,6 +28,11 @@ trait AuthenticatesUsers
      */
     public function showLoginForm()
     {
+        if(property_exists($this, 'loginView'))
+        {
+            return view($this->loginView);
+        }
+
         if (view()->exists('auth.authenticate')) {
             return view('auth.authenticate');
         }
@@ -174,6 +179,11 @@ trait AuthenticatesUsers
         );
     }
 
+    /**
+     * Get current variable based guard or if property does not exist get default guard.
+     *
+     * @return Auth
+     */
     protected function auth()
     {
         return Auth::guard( property_exists($this, 'guard') ? $this->guard : null );
