@@ -27,9 +27,9 @@ trait RegistersUsers
      */
     public function showRegistrationForm()
     {
-        if(property_exists($this, 'registerView'))
+        if(property_exists($this, 'registrationView'))
         {
-            return view($this->registerView);
+            return view($this->registrationView);
         }
 
         return view('auth.register');
