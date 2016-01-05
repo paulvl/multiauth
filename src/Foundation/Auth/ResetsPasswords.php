@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Foundation\Auth\RedirectsUsers;
 
 trait ResetsPasswords
 {
@@ -28,8 +29,7 @@ trait ResetsPasswords
      */
     public function showLinkRequestForm()
     {
-        if(property_exists($this, 'passwordsView'))
-        {
+        if (property_exists($this, 'passwordsView')) {
             return view($this->passwordsView);
         }
 
@@ -114,13 +114,12 @@ trait ResetsPasswords
 
         $email = $request->input('email');
 
-        if (view()->exists('auth.passwords.reset')) {
-            return view('auth.passwords.reset')->with(compact('token', 'email'));
+        if (property_exists($this, 'passwordResetView')) {
+            return view($this->passwordResetView)->with(compact('token', 'email'));
         }
 
-        if(property_exists($this, 'resetView'))
-        {
-            return view($this->resetView)->with('token', $token);
+        if (view()->exists('auth.passwords.reset')) {
+            return view('auth.passwords.reset')->with(compact('token', 'email'));
         }
 
         return view('auth.reset')->with('token', $token);
