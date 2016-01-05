@@ -29,8 +29,8 @@ trait ResetsPasswords
      */
     public function showLinkRequestForm()
     {
-        if (property_exists($this, 'passwordsView')) {
-            return view($this->passwordsView);
+        if (property_exists($this, 'passwordEmailView')) {
+            return view($this->passwordEmailView);
         }
 
         if (view()->exists('auth.passwords.email')) {
